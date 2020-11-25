@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <title>Mongoose Flights</title>
-</head>
+<%- include('../partials/header') %>
+
 <body>
     <body>
-        <h1>Flight List</h1>
         <table>
           <thead>
             <tr>
@@ -19,19 +12,20 @@
             </tr>
           </thead>
           <tbody>
-            <% flights.forEach(function(m) { %>
+            <% flights.forEach(function(f) { %>
             <!-- Write the line of EJS to iterate over movies using forEach -->
               <tr>
-                <td><%= m.airline %></td>
-                <td><%= m.airport %></td>
-                <td><%= m.flightNumber %></td>
-                <td><%= m.departure %></td>
-                <!-- finish the ternary expression to display
-                             'Yes' or 'Nope' --> 
+                <td><%= f.airline %></td>
+                <td><%= f.airport %></td>
+                <td><%= f.flightNo %></td>
+                <td><%= f.departure %></td>
+                <td><a href="/flights/<%= f._id %>">DETAILS</a></td>
               </tr>
+              <% }); %>
             <!-- Close the forEach using EJS here -->
           </tbody>
         </table>
     
 </body>
-</html>
+
+<%- include('../partials/footer') %>
